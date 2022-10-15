@@ -1,13 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Position")]
 public class Position
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required]
+    [Column("Name")]
     public string? Name { get; set; }
-    [Required]
-    public float Salary { get; set; }
+    [Column("Salary")]
+    public decimal Salary { get; set; }
 }

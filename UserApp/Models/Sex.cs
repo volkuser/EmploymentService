@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Sex")]
 public class Sex
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public char Id { get; set; }
-    [Required]
+    [Column("Name")]
     public string? Name { get; set; }
 }

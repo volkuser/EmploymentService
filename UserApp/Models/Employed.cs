@@ -1,24 +1,25 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Employed")]
 public class Employed
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required] 
+    [Column("FirstName")] 
     public string? FirstName { get; set; }
-    [Required]
+    [Column("LastName")]
     public string? LastName { get; set; }
+    [Column("Patronymic")]
     public string? Patronymic { get; set; }
-    [Required]
+    [Column("Email")]
     public string? Email { get; set; }
-    [Required]
+    [Column("Phone")]
     public string? Phone { get; set; }
-    [Required]
+    [Column("SexId")]
+    public char SexId { get; set; }
+    [ForeignKey("SexId")]
     public Sex? Sex { get; set; }
-    
-    private ICollection<Education>? Educations { get; set; }
-    public Employed() => Educations = new List<Education>();
 }

@@ -1,17 +1,19 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Employee")]
 public class Employee
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required]
+    [Column("FirstName")]
     public string? FirstName { get; set; }
-    [Required]
+    [Column("LastName")]
     public string? LastName { get; set; }
-    [Required]
+    [Column("Email")]
     public string? Email { get; set; }
-    [Required]
+    [Column("Password")]
     public string? Password { get; set; }
 }

@@ -53,8 +53,11 @@ INSERT INTO "Employed" ("LastName", "FirstName", "Patronymic", "Email", "Phone",
     VALUES ('игорев', 'игорь', 'игоревич', 'iigorev@gmail.com', '8(999)666-22-22', 'M'),
            ('маринова', 'марина', 'мариновна', 'mmarinova@gmail.com', '8(999)666-33-33', 'F');
 
+INSERT INTO "EducationForProfession" ("ProfessionId", "EducationId")
+   VALUES (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6);
+
 INSERT INTO "EmployedEducation" ("EmployedId", "EducationId")
     VALUES (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6);
 
 INSERT INTO "JobApplication" ("VacancyId", "EmployedId", "EmployeeId")
-    VALUES (1, 2, 1), (2, 1, 2);
+    VALUES (1, 1, 1), (2, 2, 2);

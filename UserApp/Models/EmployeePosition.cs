@@ -1,13 +1,18 @@
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("EmployeePosition")]
 public class EmployeePosition
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required]
+    [Column("DateOfHire")]
+    public DateTime DateOfHire { get; set; }
+    [Column("Employee")]
     public Employee? Employee { get; set; }
-    [Required]
+    [Column("Position")]
     public Position? Position { get; set; }
 }

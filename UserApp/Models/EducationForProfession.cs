@@ -3,17 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
-[Table("Vacancy")]
-public class Vacancy
+[Table("EducationForProfession")]
+public class EducationForProfession
 {
     [Key] [Column("Id")]
     public int Id { get; set; }
-    [Column("Salary")]
-    public float Salary { get; set; }
-    [Column("EmployerId")]
-    public int EmployerId { get; set; }
-    [ForeignKey("EmployerId")]
-    public Employer? Employer { get; set; }
+    [Column("EducationId")]
+    public int EducationId { get; set; }
+    [ForeignKey("EducationId")]
+    public Education? Education { get; set; }
     [Column("ProfessionId")]
     public int ProfessionId { get; set; }
     [ForeignKey("ProfessionId")]

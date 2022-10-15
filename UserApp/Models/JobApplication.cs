@@ -1,15 +1,23 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("JobApplication")]
 public class JobApplication
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required]
+    [Column("VacancyId")]
+    public int VacancyId { get; set; }
+    [ForeignKey("VacancyId")]
     public Vacancy? Vacancy { get; set; }
-    [Required]
+    [Column("EmployedId")]
+    public int EmployedId { get; set; }
+    [ForeignKey("EmployedId")]
     public Employed? Employed { get; set; }
-    [Required]
+    [Column("EmployeeId")]
+    public int EmployeeId { get; set; }
+    [ForeignKey("EmployeeId")]
     public Employee? Employee { get; set; }
 }

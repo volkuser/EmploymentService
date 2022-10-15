@@ -1,21 +1,13 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Education")]
 public class Education
 {
-    [Key] [Required] 
+    [Key] [Column("Id")] 
     public int Id { get; set; }
-    [Required]
+    [Column("Name")]
     public string? Name { get; set; }
-
-    private ICollection<Employed>? Employeds { get; set; }
-    private ICollection<Profession>? Professions { get; set; }
-
-    public Education()
-    {
-        Employeds = new List<Employed>();
-        Professions = new List<Profession>();
-    }
 }

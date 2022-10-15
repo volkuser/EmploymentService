@@ -1,27 +1,29 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserApp.Models;
 
+[Table("Employer")]
 public class Employer
 {
-    [Key] [Required]
+    [Key] [Column("Id")]
     public int Id { get; set; }
-    [Required]
+    [Column("FirstName")]
     public string? FirstName { get; set; }
-    [Required]
+    [Column("LastName")]
     public string? LastName { get; set; }
-    [Required]
+    [Column("Position")]
     public string? Position { get; set; }
-    [Required]
+    [Column("PersonalPhone")]
     public string? PersonalPhone { get; set; }
-    [Required]
+    [Column("PersonalEmail")]
     public string? PersonalEmail { get; set; }
-    [Required]
+    [Column("OrganizationName")]
     public string? OrganizationName { get; set; }
-    [Required]
+    [Column("SupportNumber")]
     public string? SupportNumber { get; set; }
-    [Required]
+    [Column("SupportEmail")]
     public string? SupportEmail { get; set; }
-    [Required]
+    [Column("RegistrationAddressOfOrganization")]
     public string? RegistrationAddressOfOrganization { get; set; }
 }

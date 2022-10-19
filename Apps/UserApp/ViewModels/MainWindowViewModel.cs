@@ -1,10 +1,61 @@
-﻿using UserApp.Models;
+﻿using System.Runtime.Serialization;
+using ReactiveUI;
+using UserApp.Models;
 
 namespace UserApp.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ReactiveObject, IScreen, IPageNavigation
     {
-        private ApplicationContext db = Singleton.GetInstance();
-        public string Greeting => "Welcome to Avalonia!";
+        [DataMember] public RoutingState Router { get; set; } = new();
+
+        public void OpnAuthorizationPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEmployeeControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEmployeePositionControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEmployerControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnProfessionControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnVacancyControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEmployedControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEducationForProfessionControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnEmployedEducationControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OpnJobApplicationControlPage()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

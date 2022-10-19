@@ -1,27 +1,24 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using PropertyChanged;
+using ReactiveUI;
+using Splat;
 using UserApp.ViewModels;
 using UserApp.Views;
 
 namespace UserApp
 {
-    public partial class App : Application
+    [DoNotNotify]
+    public class App : Application
     {
-        public override void Initialize()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+        public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
         public override void OnFrameworkInitializationCompleted()
         {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                desktop.MainWindow = new MainWindow
-                {
-                    DataContext = new MainWindowViewModel(),
-                };
-            }
+            Locator.CurrentMutable.RegisterConstant<IScreen>(new MainWindowViewModel());
+            
+            new MainWindow() { DataContext = Locator.Current.GetService<IScreen>() }.Show();
 
             base.OnFrameworkInitializationCompleted();
         }

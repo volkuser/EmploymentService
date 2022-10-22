@@ -7,7 +7,7 @@ namespace UserApp.Models;
 public class Sex
 {
     [Key] [Column("Id")]
-    public char Id { get; set; }
+    public char IdButChar { get; set; }
     [Column("Name")]
     public string? Name { get; set; }
 }

@@ -31,3 +31,5 @@
 /home/volkuser/CsProjects/EmploymentService/Apps/API/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
 /home/volkuser/CsProjects/EmploymentService/Apps/API/bin/Debug/net6.0/Npgsql.dll
 /home/volkuser/CsProjects/EmploymentService/Apps/API/bin/Debug/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/API/bin/Debug/net6.0/Entities.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/API/bin/Debug/net6.0/Entities.pdb

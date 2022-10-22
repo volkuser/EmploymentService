@@ -1,0 +1,12 @@
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/bin/Debug/net6.0/Entities.deps.json
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/bin/Debug/net6.0/Entities.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/bin/Debug/net6.0/ref/Entities.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/bin/Debug/net6.0/Entities.pdb
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.csproj.AssemblyReference.cache
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.GeneratedMSBuildEditorConfig.editorconfig
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.AssemblyInfoInputs.cache
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.AssemblyInfo.cs
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.csproj.CoreCompileInputs.cache
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/ref/Entities.dll
+/home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.pdb

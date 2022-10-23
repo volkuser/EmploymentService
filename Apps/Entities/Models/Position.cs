@@ -7,7 +7,7 @@ namespace Entities.Models;
 public class Position
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("Name")]
     public string? Name { get; set; }
     [Column("Salary")]

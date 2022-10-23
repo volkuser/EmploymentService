@@ -8,7 +8,7 @@ namespace Entities.Models;
 public class EmployeePosition
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("DateOfHire")]
     public DateTime DateOfHire { get; set; }
     [Column("Employee")]

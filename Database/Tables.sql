@@ -1,5 +1,5 @@
 CREATE TABLE "Employee"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "LastName" VARCHAR(100) NOT NULL CHECK ("LastName" ~ '[а-яА-Я]+'),
     "FirstName" VARCHAR(100) NOT NULL CHECK ("FirstName" ~ '[а-яА-Я]+'),
     "Login" VARCHAR(250) NOT NULL UNIQUE,
@@ -7,20 +7,20 @@ CREATE TABLE "Employee"(
 );
 
 CREATE TABLE "Position"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "Name" VARCHAR(100) NOT NULL CHECK ("Name" ~ '[а-яА-Я ]+'),
     "Salary" DECIMAL(38,2) NULL CHECK ("Salary" >= 0.0) DEFAULT (0.0)
 );
 
 CREATE TABLE "EmployeePosition"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "DateOfHire" DATE NOT NULL,
-    "PositionId" INTEGER NOT NULL REFERENCES "Position" ("Id"),
-    "EmployeeId" INTEGER NOT NULL REFERENCES "Employee" ("Id")
+    "PositionId" UUID NOT NULL REFERENCES "Position" ("Id"),
+    "EmployeeId" UUID NOT NULL REFERENCES "Employee" ("Id")
 );
 
 CREATE TABLE "Employer"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "LastName" VARCHAR(100) NOT NULL CHECK ("LastName" ~ '[а-яА-Я]+'),
     "FirstName" VARCHAR(100) NOT NULL CHECK ("FirstName" ~ '[а-яА-Я]+'),
     "Position" VARCHAR(250) NOT NULL,
@@ -35,16 +35,16 @@ CREATE TABLE "Employer"(
 );
 
 CREATE TABLE "Profession"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "Name" VARCHAR(100) NOT NULL UNIQUE CHECK ("Name" ~ '[а-яА-Я]+')
 );
 
 CREATE TABLE "Vacancy"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
-    "Seniority" INTEGER NOT NULL,
+    "Id" UUID NOT NULL PRIMARY KEY,
+    "Seniority" INT NOT NULL,
     "Salary" DECIMAL(38,2) NULL CHECK ("Salary" >= 0.0) DEFAULT (0.0),
-    "EmployerId" INTEGER NOT NULL REFERENCES "Employer" ("Id"),
-    "ProfessionId" INTEGER NOT NULL REFERENCES "Profession" ("Id")
+    "EmployerId" UUID NOT NULL REFERENCES "Employer" ("Id"),
+    "ProfessionId" UUID NOT NULL REFERENCES "Profession" ("Id")
 );
 
 CREATE TABLE "Sex"(
@@ -58,13 +58,13 @@ CREATE TABLE "Education"(
 );
 
 CREATE TABLE "EducationForProfession"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
-    "ProfessionId" INTEGER NOT NULL REFERENCES "Profession" ("Id"),
-    "EducationId" INTEGER NOT NULL REFERENCES "Education" ("Id")
+    "Id" UUID NOT NULL PRIMARY KEY,
+    "ProfessionId" UUID NOT NULL REFERENCES "Profession" ("Id"),
+    "EducationId" INT NOT NULL REFERENCES "Education" ("Id")
 );
 
 CREATE TABLE "Employed"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
+    "Id" UUID NOT NULL PRIMARY KEY,
     "LastName" VARCHAR(100) NOT NULL CHECK ("LastName" ~ '[а-яА-Я]+'),
     "FirstName" VARCHAR(100) NOT NULL CHECK ("FirstName" ~ '[а-яА-Я]+'),
     "Patronymic" VARCHAR(100) NULL CHECK ("Patronymic" ~ '[а-яА-Я]+'),
@@ -75,14 +75,14 @@ CREATE TABLE "Employed"(
 );
 
 CREATE TABLE "EmployedEducation"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
-    "EmployedId" INTEGER NOT NULL REFERENCES "Employed" ("Id"),
-    "EducationId" INTEGER NOT NULL REFERENCES "Education" ("Id")
+    "Id" UUID NOT NULL PRIMARY KEY,
+    "EmployedId" UUID NOT NULL REFERENCES "Employed" ("Id"),
+    "EducationId" INT NOT NULL REFERENCES "Education" ("Id")
 );
 
 CREATE TABLE "JobApplication"(
-    "Id" SERIAL NOT NULL PRIMARY KEY,
-    "VacancyId" INTEGER NOT NULL REFERENCES "Vacancy" ("Id"),
-    "EmployedId" INTEGER NOT NULL REFERENCES "Employed" ("Id"),
-    "EmployeeId" INTEGER NOT NULL REFERENCES "Employee" ("Id")
+    "Id" UUID NOT NULL PRIMARY KEY,
+    "VacancyId" UUID NOT NULL REFERENCES "Vacancy" ("Id"),
+    "EmployedId" UUID NOT NULL REFERENCES "Employed" ("Id"),
+    "EmployeeId" UUID NOT NULL REFERENCES "Employee" ("Id")
 );

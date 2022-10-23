@@ -7,7 +7,7 @@ namespace Entities.Models;
 public class Employee
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("FirstName")]
     public string? FirstName { get; set; }
     [Column("LastName")]

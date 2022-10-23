@@ -7,7 +7,7 @@ namespace Entities.Models;
 public class EmployedEducation
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("EducationId")]
     public int EducationId { get; set; }
     [ForeignKey("EducationId")]

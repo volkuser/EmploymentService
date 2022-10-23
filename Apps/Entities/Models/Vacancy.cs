@@ -7,7 +7,7 @@ namespace Entities.Models;
 public class Vacancy
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("Salary")]
     public float Salary { get; set; }
     [Column("EmployerId")]

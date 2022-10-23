@@ -7,7 +7,7 @@ namespace Entities.Models;
 public class JobApplication
 {
     [Key] [Column("Id")]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     [Column("VacancyId")]
     public int VacancyId { get; set; }
     [ForeignKey("VacancyId")]

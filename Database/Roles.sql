@@ -1,0 +1,2 @@
+CREATE USER "db_admin" WITH PASSWORD '123';
+GRANT ALL PRIVILEGES ON DATABASE "EmploymentService" TO "db_admin";

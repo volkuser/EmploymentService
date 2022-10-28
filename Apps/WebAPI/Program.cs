@@ -1,31 +1,43 @@
-using DbInteraction;
-using Microsoft.EntityFrameworkCore;
+using Entities;
+using Microsoft.EntityFrameworkCore;using WebAPI.Apis;
+using WebAPI.Controls;
 
 var builder = WebApplication.CreateBuilder(args);
 
-/* Add services to the container. */
-
-builder.Services.AddControllers();
-builder.Services.AddDbContext<ServiceDbContext>(options
-    => options.UseNpgsql(builder.Configuration.GetConnectionString("connectionString")));
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+RegisterServices(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+Configure(app);
+
+var apis = app.Services.GetServices<IApi>();
+foreach(var api in apis)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    if (api is null) throw new InvalidProgramException("Api not found");
+    api.Register(app);
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
 app.Run();
+
+void RegisterServices(IServiceCollection services)
+{
+    services.AddEndpointsApiExplorer();
+    services.AddSwaggerGen();
+    
+    services.AddDbContext<Db>(options
+        => options.UseNpgsql(builder.Configuration.GetConnectionString("connectionString")));
+
+    services.AddScoped<IProfessionControl, ProfessionControl>();
+    services.AddTransient<IApi, ProfessionApi>();
+}
+
+void Configure(WebApplication webapp)
+{
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+    
+    webapp.UseHttpsRedirection();
+}

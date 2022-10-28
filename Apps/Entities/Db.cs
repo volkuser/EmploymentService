@@ -1,10 +1,14 @@
 using Entities.Models;
+
 using Microsoft.EntityFrameworkCore;
 
-namespace DbInteraction;
+namespace Entities;
 
-public class ServiceDbContext : DbContext
+public class Db : DbContext
 {
+    /*private const string ConnectionString = "Host=localhost;Port=5432;" +
+                                             "Database=EmploymentService;Username=postgres;Password=321";*/
+    
     public DbSet<Education>? Educations { get; set; }
     public DbSet<Employed>? Employeds { get; set; }
     public DbSet<Employee>? Employees { get; set; }
@@ -18,9 +22,8 @@ public class ServiceDbContext : DbContext
     public DbSet<EducationForProfession>? EducationsForProfessions { get; set; }
     public DbSet<EmployedEducation>? EmployedEducations { get; set; }
 
-    public ServiceDbContext(DbContextOptions options) : base(options) { } /*=> Database.EnsureCreated();*/
+    public Db(DbContextOptions options) : base(options) { } /*=> Database.EnsureCreated();*/
     
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;" + 
-                                 "Database=EmploymentService;Username=postgres;Password=321");
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
+        optionsBuilder.UseNpgsql(ConnectionString);*/
 }

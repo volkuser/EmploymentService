@@ -402,20 +402,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "DbInteraction/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Entities": "1.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.7"
-        },
-        "compile": {
-          "bin/placeholder/DbInteraction.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DbInteraction.dll": {}
-        }
-      },
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -951,11 +937,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "DbInteraction/1.0.0": {
-      "type": "project",
-      "path": "../DbInteraction/DbInteraction.csproj",
-      "msbuildProject": "../DbInteraction/DbInteraction.csproj"
-    },
     "Entities/1.0.0": {
       "type": "project",
       "path": "../Entities/Entities.csproj",
@@ -964,7 +945,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DbInteraction >= 1.0.0",
       "Entities >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.7",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -995,9 +975,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/volkuser/CsProjects/EmploymentService/Apps/DbInteraction/DbInteraction.csproj": {
-              "projectPath": "/home/volkuser/CsProjects/EmploymentService/Apps/DbInteraction/DbInteraction.csproj"
-            },
             "/home/volkuser/CsProjects/EmploymentService/Apps/Entities/Entities.csproj": {
               "projectPath": "/home/volkuser/CsProjects/EmploymentService/Apps/Entities/Entities.csproj"
             }

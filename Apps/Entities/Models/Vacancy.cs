@@ -11,11 +11,11 @@ public class Vacancy
     [Column("Salary")]
     public float Salary { get; set; }
     [Column("EmployerId")]
-    public int EmployerId { get; set; }
+    public Guid EmployerId { get; set; }
     [ForeignKey("EmployerId")]
     public Employer? Employer { get; set; }
     [Column("ProfessionId")]
-    public int ProfessionId { get; set; }
+    public Guid ProfessionId { get; set; }
     [ForeignKey("ProfessionId")]
     public Profession? Profession { get; set; }
 }

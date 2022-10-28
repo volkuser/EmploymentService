@@ -13,7 +13,7 @@ public class EmployedEducation
     [ForeignKey("EducationId")]
     public Education? Education { get; set; }
     [Column("EmployedId")]
-    public int EmployedId { get; set; }
+    public Guid EmployedId { get; set; }
     [ForeignKey("EmployedId")]
     public Employed? Employed { get; set; }
 }

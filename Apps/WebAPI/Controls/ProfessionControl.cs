@@ -1,6 +1,7 @@
 using Entities;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Controls.Contracts;
 
 namespace WebAPI.Controls;
 
@@ -21,7 +22,9 @@ public class ProfessionControl : IProfessionControl
     }
 
     public async Task<List<Profession?>> GetProfessionsAsync() => (await _context.Professions!.ToListAsync())!;
-
+    public async Task<List<Profession?>> GetProfessionsAsync(string name) => (await _context.Professions!
+        .Where(entity => entity.Name!.Contains(name)).ToListAsync())!;
+    
     public async Task<Profession?> GetProfessionDetailsAsync(Guid id)
         => await _context.Professions!.FindAsync(new object[] {id});
 

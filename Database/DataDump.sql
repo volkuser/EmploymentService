@@ -29,17 +29,12 @@ INSERT INTO "Employee" ("Id", "LastName", "FirstName", "Login", "Password")
            ('a9f6f81d-198f-4201-9769-ccb99bbe1beb', 'артемов', 'артем', 'aartemov', '3123'),
            ('32c53c33-ba8d-4e2b-b732-15afb7093e91', 'сергеев', 'сергей', 'ssergeev', '4123');
 
-INSERT INTO "EmployeePosition" ("Id", "DateOfHire", "PositionId", "EmployeeId")
-    VALUES (uuid_generate_v4(), '2020-09-23'::date,
-            '1bf420ef-0de5-4edf-ad4b-64504f396dfc', 'f1d6ec8b-7486-49a2-98d7-c7d5f746a71e'),
-           (uuid_generate_v4(), '2021-09-23'::date,
-            '73392b58-228a-4667-a7ce-cbf27a60f44a', '1cd4b72e-9f24-40c1-939b-b961950e7f2d'),
-           (uuid_generate_v4(), '2020-09-23'::date,
-            '551f6bdf-8883-4ae8-b2dd-16a24e09a659', '1cd4b72e-9f24-40c1-939b-b961950e7f2d'),
-           (uuid_generate_v4(), '2021-09-23'::date,
-            '94d9196e-71e5-4b0d-8b58-66a687258305', 'a9f6f81d-198f-4201-9769-ccb99bbe1beb'),
-           (uuid_generate_v4(), '2020-09-23'::date,
-            '94d9196e-71e5-4b0d-8b58-66a687258305', '32c53c33-ba8d-4e2b-b732-15afb7093e91');
+INSERT INTO "EmployeePosition" ("Id", "PositionId", "EmployeeId")
+    VALUES (uuid_generate_v4(), '1bf420ef-0de5-4edf-ad4b-64504f396dfc', 'f1d6ec8b-7486-49a2-98d7-c7d5f746a71e'),
+           (uuid_generate_v4(), '73392b58-228a-4667-a7ce-cbf27a60f44a', '1cd4b72e-9f24-40c1-939b-b961950e7f2d'),
+           (uuid_generate_v4(), '551f6bdf-8883-4ae8-b2dd-16a24e09a659', '1cd4b72e-9f24-40c1-939b-b961950e7f2d'),
+           (uuid_generate_v4(), '94d9196e-71e5-4b0d-8b58-66a687258305', 'a9f6f81d-198f-4201-9769-ccb99bbe1beb'),
+           (uuid_generate_v4(), '94d9196e-71e5-4b0d-8b58-66a687258305', '32c53c33-ba8d-4e2b-b732-15afb7093e91');
 
 INSERT INTO "Employer" ("Id", "LastName", "FirstName", "Position", "PersonalPhone", "PersonalEmail", "OrganizationName",
                         "SupportNumber", "SupportEmail", "RegistrationAddressOfOrganization")

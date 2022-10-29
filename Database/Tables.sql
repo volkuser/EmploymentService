@@ -14,7 +14,6 @@ CREATE TABLE "Position"(
 
 CREATE TABLE "EmployeePosition"(
     "Id" UUID NOT NULL PRIMARY KEY,
-    "DateOfHire" DATE NOT NULL,
     "PositionId" UUID NOT NULL REFERENCES "Position" ("Id"),
     "EmployeeId" UUID NOT NULL REFERENCES "Employee" ("Id")
 );

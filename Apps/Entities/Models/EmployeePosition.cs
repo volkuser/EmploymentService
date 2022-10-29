@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,10 +8,12 @@ public class EmployeePosition
 {
     [Key] [Column("Id")]
     public Guid Id { get; set; }
-    [Column("DateOfHire")]
-    public DateTime DateOfHire { get; set; }
-    [Column("Employee")]
+    [Column("EmployeeId")]
+    public Guid EmployeeId { get; set; }
+    [ForeignKey("Employee")]
     public Employee? Employee { get; set; }
-    [Column("Position")]
+    [Column("PositionId")]
+    public Guid PositionId { get; set; }
+    [ForeignKey("Position")]
     public Position? Position { get; set; }
 }

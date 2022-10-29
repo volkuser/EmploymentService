@@ -12,7 +12,7 @@ public class VacancyApi : IApi
             .Produces<List<Vacancy>>(StatusCodes.Status200OK)
             .WithName("GetAllVacancies")
             .WithTags("Getters");
-        app.MapGet("/vacancies/{professionId}", GetByProfession) 
+        app.MapGet("/vacancies/search/profession/id/{professionId}", GetByProfession) 
             .Produces<List<Vacancy>>(StatusCodes.Status200OK)
             .WithName("GetAllVacanciesOfProfession")
             .WithTags("Getters");

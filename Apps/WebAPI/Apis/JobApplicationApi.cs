@@ -12,7 +12,7 @@ public class JobApplicationApi : IApi
             .Produces<List<JobApplication>>(StatusCodes.Status200OK)
             .WithName("GetAllJobApplications")
             .WithTags("Getters");
-        app.MapGet("/jobApplications/{jobApplicationId}", GetByEmployed) 
+        app.MapGet("/jobApplications/search/employed/id/{employedId}", GetByEmployed) 
             .Produces<List<JobApplication>>(StatusCodes.Status200OK)
             .WithName("GetAllJobApplicationsForEmployed")
             .WithTags("Getters");

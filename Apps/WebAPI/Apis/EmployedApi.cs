@@ -12,7 +12,7 @@ public class EmployedApi : IApi
             .Produces<List<Employed>>(StatusCodes.Status200OK)
             .WithName("GetAllEmployeds")
             .WithTags("Getters");
-        app.MapGet("/employeds/{sexId}", GetBySex) 
+        app.MapGet("/employeds/search/sex/id/{sexId}", GetBySex) 
             .Produces<Employed>(StatusCodes.Status200OK)
             .WithName("GetAllEmployedsBySingleSex")
             .WithTags("Getters");

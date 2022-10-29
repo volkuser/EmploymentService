@@ -10,10 +10,10 @@ public class EmployeePosition
     public Guid Id { get; set; }
     [Column("EmployeeId")]
     public Guid EmployeeId { get; set; }
-    [ForeignKey("Employee")]
+    [ForeignKey("EmployeeId")]
     public Employee? Employee { get; set; }
     [Column("PositionId")]
     public Guid PositionId { get; set; }
-    [ForeignKey("Position")]
+    [ForeignKey("PositionId")]
     public Position? Position { get; set; }
 }

@@ -10,11 +10,11 @@ public class EducationForProfessionApi : IApi
     {
         app.MapGet("/educationsForProfessions", Get) 
             .Produces<List<EducationForProfession>>(StatusCodes.Status200OK)
-            .WithName("GetAllPEducationsForProfessions")
+            .WithName("GetAllEducationsForProfessions")
             .WithTags("Getters");
-        app.MapGet("/educationsForProfession", GetForSingleProfession) 
+        app.MapGet("/educationsForProfession/search/profession/id/{professionId}", GetForSingleProfession) 
             .Produces<List<EducationForProfession>>(StatusCodes.Status200OK)
-            .WithName("GetAllPEducationsForProfession")
+            .WithName("GetAllEducationsByProfession")
             .WithTags("Getters");
         app.MapGet("/educationsForProfessions/{id}", GetById) 
             .Produces<EducationForProfession>(StatusCodes.Status200OK)

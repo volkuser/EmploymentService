@@ -12,8 +12,8 @@ public class Employee
     public string? FirstName { get; set; }
     [Column("LastName")]
     public string? LastName { get; set; }
-    [Column("Email")]
-    public string? Email { get; set; }
+    [Column("Login")]
+    public string? Login { get; set; }
     [Column("Password")]
     public string? Password { get; set; }
 }

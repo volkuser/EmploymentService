@@ -12,9 +12,9 @@ public class EmployeePositionApi : IApi
             .Produces<List<EmployeePosition>>(StatusCodes.Status200OK)
             .WithName("GetAllEmployeePositions")
             .WithTags("Getters");
-        app.MapGet("/employeePositions/{employeeId}", GetByEmployee) 
+        app.MapGet("/employeePositions/search/employee/id/{employeeId}", GetByEmployee) 
             .Produces<List<EmployeePosition>>(StatusCodes.Status200OK)
-            .WithName("GetAllEmployeePositions")
+            .WithName("GetAllPositionsByEmployee")
             .WithTags("Getters");
         app.MapGet("/employeePositions/{id}", GetById) 
             .Produces<EmployeePosition>(StatusCodes.Status200OK)

@@ -25,7 +25,7 @@ public class EmployeeControl : IEmployeeControl
     public async Task<List<Employee?>> GetEmployeesAsync(string query) => (await _context.Employees!
         .Where(entity => entity.FirstName!.Contains(query)
         || entity.LastName!.Contains(query)
-        || entity.Email!.Contains(query)).ToListAsync())!;
+        || entity.Login!.Contains(query)).ToListAsync())!;
     
     public async Task<Employee?> GetEmployeeDetailsAsync(Guid id)
         => await _context.Employees!.FindAsync(new object[] {id});

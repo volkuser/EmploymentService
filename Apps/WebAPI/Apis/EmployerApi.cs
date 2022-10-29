@@ -29,10 +29,10 @@ public class EmployerApi : IApi
             .WithName("DeleteEmployer")
             .WithTags("Deleters");
 
-        app.MapGet("/professions/search/name/{query}", SearchByName)
+        app.MapGet("/employers/search/{query}", SearchByQuery)
             .Produces<List<Employer>>(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound)
-            .WithName("SearchEmployersByName")
+            .WithName("SearchEmployersByQuery")
             .WithTags("Getters");
     }
     
@@ -65,7 +65,7 @@ public class EmployerApi : IApi
         return Results.NoContent();
     }
     
-    private async Task<IResult> SearchByName(string query, IEmployerControl control) =>
+    private async Task<IResult> SearchByQuery(string query, IEmployerControl control) =>
         await control.GetEmployersAsync(query) is IEnumerable<Employer> entities
             ? Results.Ok(entities)
             : Results.NotFound(Array.Empty<Employer>());

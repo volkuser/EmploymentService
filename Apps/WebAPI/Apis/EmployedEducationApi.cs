@@ -12,13 +12,9 @@ public class EmployedEducationApi : IApi
             .Produces<List<EmployedEducation>>(StatusCodes.Status200OK)
             .WithName("GetAllEmployedEducations")
             .WithTags("Getters");
-        app.MapGet("/employedEducations", GetByEmployed) 
+        app.MapGet("/employedEducations/search/employed/id/{employedId}", GetByEmployed) 
             .Produces<List<EmployedEducation>>(StatusCodes.Status200OK)
-            .WithName("GetAllEmployedEducations")
-            .WithTags("Getters");
-        app.MapGet("/employedEducations/{id}", GetById) 
-            .Produces<EmployedEducation>(StatusCodes.Status200OK)
-            .WithName("GetEmployedEducation")
+            .WithName("GetAllEducationsByEmployed")
             .WithTags("Getters");
         app.MapGet("/employedEducations/{id}", GetById) 
             .Produces<EmployedEducation>(StatusCodes.Status200OK)

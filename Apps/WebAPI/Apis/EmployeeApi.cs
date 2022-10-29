@@ -19,7 +19,7 @@ public class EmployeeApi : IApi
         app.MapGet("/employees/search/{query}", SearchByName)
             .Produces<List<Employee>>(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound)
-            .WithName("SearchProfessionsByName")
+            .WithName("SearchEmployeesByQuery")
             .WithTags("Getters");
     }
     

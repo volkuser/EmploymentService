@@ -9,10 +9,8 @@ public class EmployeePosition
 {
     [Key] [Column("Id")]
     public int Id { get; set; }
-    [Column("DateOfHire")]
-    public DateTime DateOfHire { get; set; }
-    [Column("Employee")]
+    [ForeignKey("EmployeeId")]
     public Employee? Employee { get; set; }
-    [Column("Position")]
+    [ForeignKey("PositionId")]
     public Position? Position { get; set; }
 }

@@ -3,7 +3,13 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="EmployeeApp/App.axaml" value="EmployeeApp/EmployeeApp.csproj" />
+        <entry key="EmployeeApp/Views/AuthorizationPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
+        <entry key="EmployeeApp/Views/MainMenuPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
+        <entry key="EmployeeApp/Views/MainWindow.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="UserApp/App.axaml" value="UserApp/UserApp.csproj" />
+        <entry key="UserApp/Views/AuthorizationPage.axaml" value="UserApp/UserApp.csproj" />
+        <entry key="UserApp/Views/MainWindow.axaml" value="UserApp/UserApp.csproj" />
       </map>
     </option>
   </component>

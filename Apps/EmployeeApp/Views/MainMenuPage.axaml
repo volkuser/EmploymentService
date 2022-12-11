@@ -1,0 +1,22 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="EmployeeApp.Views.MainMenuPage">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Content="Управление трудоустраиваемыми" IsVisible="{Binding EmployedControlIsVisible}"
+                Command="{Binding OnClickBtnEmployedControl}"/>
+        <Button Content="Управление профессиями" IsVisible="{Binding ProfessionControlIsVisible}"
+                Command="{Binding OnClickBtnProfessionControl}"/>
+        <Button Content="Управление работодателями" IsVisible="{Binding EmployerControlIsVisible}"
+                Command="{Binding OnClickBtnEmployerControl}"/>
+        <Button Content="Управление вакансиями" IsVisible="{Binding VacancyControlIsVisible}"
+                Command="{Binding OnClickBtnVacancyControl}"/>
+        <Button Content="Управление сотрудниками" IsVisible="{Binding EmployeeControlIsVisible}"
+                Command="{Binding OnClickBtnEmployeeControl}"/>
+        <Button Content="Управление должностями" IsVisible="{Binding PositionControlIsVisible}"
+                Command="{Binding OnClickBtnPositionControl}"/>
+        <Button Content="Управление заявками на вакансии" IsVisible="{Binding JobApplicationIsVisible}"
+                Command="{Binding OnClickBtnJobApplicationControl}"/>
+    </StackPanel>
+</UserControl>

@@ -6,8 +6,8 @@ namespace Entities;
 
 public class Db : DbContext
 {
-    /*private const string ConnectionString = "Host=localhost;Port=5432;" +
-                                             "Database=EmploymentService;Username=postgres;Password=321";*/
+    private const string ConnectionString = "Host=localhost;Port=5432;" +
+                                            "Database=EmploymentService;Username=postgres;Password=iuh";
     
     public DbSet<Education>? Educations { get; set; }
     public DbSet<Employed>? Employeds { get; set; }
@@ -22,8 +22,10 @@ public class Db : DbContext
     public DbSet<EducationForProfession>? EducationsForProfessions { get; set; }
     public DbSet<EmployedEducation>? EmployedEducations { get; set; }
 
+    public Db() {}
+    
     public Db(DbContextOptions options) : base(options) { } /*=> Database.EnsureCreated();*/
     
-    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
-        optionsBuilder.UseNpgsql(ConnectionString);*/
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
+        optionsBuilder.UseNpgsql(ConnectionString);
 }

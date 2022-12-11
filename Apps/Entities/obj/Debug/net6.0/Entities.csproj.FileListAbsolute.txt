@@ -10,3 +10,15 @@
 /home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.dll
 /home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/ref/Entities.dll
 /home/volkuser/CsProjects/EmploymentService/Apps/Entities/obj/Debug/net6.0/Entities.pdb
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\bin\Debug\net6.0\Entities.deps.json
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\bin\Debug\net6.0\Entities.dll
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\bin\Debug\net6.0\Entities.pdb
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.dll
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\refint\Entities.dll
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\Entities.pdb
+C:\Users\HP\RiderProjects\EmploymentService\Apps\Entities\obj\Debug\net6.0\ref\Entities.dll

@@ -40,10 +40,4 @@
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="ViewModels\HR" />
-      <Folder Include="ViewModels\Consultants\Employed" />
-      <Folder Include="ViewModels\Consultants\Employer" />
-      <Folder Include="ViewModels\Coorinator" />
-    </ItemGroup>
 </Project>

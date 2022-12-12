@@ -5,11 +5,19 @@
         xmlns:reactiveUi="http://reactiveui.net"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="EmployeeApp.Views.MainWindow"
-        Title="Employment service">
-    <Grid RowDefinitions="*, 7*">
-        <Button Grid.Row="0" Command="{Binding OnClickBtnBack}"
-                Content="Назад" IsVisible="{Binding VisibleBtnBack}"
-                HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <reactiveUi:RoutedViewHost Grid.Row="1" Router="{Binding Router}" />
+        Title="Employment service" WindowStartupLocation="CenterScreen"
+        Height="600" Width="1000" MinHeight="600" MinWidth="1000">
+    <Grid RowDefinitions="*, 7*" ColumnDefinitions="0.5*, 2*, 0.5*">
+        
+        <Button Grid.Row="0" Grid.Column="0"
+                Command="{Binding OnClickBtnBack}" Content="Назад" FontSize="25"
+                IsVisible="{Binding VisibleBtnBack}"
+                HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="0" Grid.Column="2"
+                Command="{Binding OnClickBtnLogout}" Content="Logout" FontSize="25"
+                IsVisible="{Binding VisibleBtnLogout}"
+                HorizontalAlignment="Center" VerticalAlignment="Center" />
+        
+        <reactiveUi:RoutedViewHost Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Router="{Binding Router}" />
     </Grid>
 </Window>

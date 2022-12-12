@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Windows.Input;
+using EmployeeApp.ViewModels.Consultants.Employed;
+using EmployeeApp.ViewModels.Consultants.Employer;
+using EmployeeApp.ViewModels.Coordinator;
+using EmployeeApp.ViewModels.HR;
 using Entities.Models;
 using ReactiveUI;
 
@@ -12,10 +16,13 @@ public class MainWindowViewModel : ReactiveObject, IScreen, IPageNavigation
 
     // commands
     private ICommand OnClickBtnBack { get; set; }
-    
+    private ICommand OnClickBtnLogout { get; set; }
+        
     // properties of element on view
     private bool VisibleBtnBack { get; set; }
+    private bool VisibleBtnLogout { get; set; }
     private List<bool> VisibilityBtnBackHistory { get; set; } = new();
+    private List<bool> VisibilityBtnLogoutHistory { get; set; } = new();
     
     public MainWindowViewModel()
     {
@@ -23,44 +30,57 @@ public class MainWindowViewModel : ReactiveObject, IScreen, IPageNavigation
         OpnAuthorizationPage();
 
         OnClickBtnBack = ReactiveCommand.Create(Back);
+        OnClickBtnLogout = ReactiveCommand.Create(OpnAuthorizationPage);
     }
     
-    public void OpnAuthorizationPage()
+    // for all
+    
+    private void OpnAuthorizationPage()
     {
-        var viewModel = new AuthorizationViewModel(this);
+        var viewModel = new AuthorizationViewModel(this, this);
         Router.Navigate.Execute(viewModel);
-        AdditionForBtnBackViewHistory(false);
+        AdditionForHistory(false);
     }
+    
+    // for employees
     
     public void OpnMainMenuPage(Employee currentUser)
     {
-        var viewModel = new MainMenuViewModel(currentUser, this);
+        var viewModel = new MainMenuViewModel(currentUser, this, this);
         Router.Navigate.Execute(viewModel);
-        AdditionForBtnBackViewHistory(false);
+        AdditionForHistory(false, true);
     }
     
     // for HR
     
     public void OpnEmployeeControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EmployeeControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
     public void OpnPositionControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new PositionControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
-    public void OpnEmployeePositionControlPage()
+    public void OpnEmployeePositionControlPage(Employee currentEmployee)
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EmployeePositionControlViewModel(currentEmployee, this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, false);
     }
     
     // for coordinator
     
     public void OpnJobApplicationControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new JobApplicationControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
     // for consultants
@@ -69,50 +89,80 @@ public class MainWindowViewModel : ReactiveObject, IScreen, IPageNavigation
     
     public void OpnEmployedControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EmployedControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
     
-    public void OpnEmployedEducationControlPage()
+    public void OpnEmployedEducationControlPage(Employed currentEmployed)
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EmployedEducationControlViewModel(currentEmployed, this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, false);
     }
     
     // (employer)
 
     public void OpnEmployerControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EmployerControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
     public void OpnProfessionControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new ProfessionControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
     public void OpnVacancyControlPage()
     {
-        throw new System.NotImplementedException();
+        var viewModel = new VacancyControlViewModel(this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, true);
     }
 
-    public void OpnEducationForProfessionControlPage()
+    public void OpnEducationForProfessionControlPage(Profession currentProfession)
     {
-        throw new System.NotImplementedException();
+        var viewModel = new EducationForProfessionControlViewModel(currentProfession, this, this);
+        Router.Navigate.Execute(viewModel);
+        AdditionForHistory(true, false);
     }
     
-    // for return to back
+    // for return to back and logout
     
     private void Back()
     {
         Router.NavigateBack.Execute();
-        VisibilityBtnBackHistory.RemoveAt(VisibilityBtnBackHistory.Count - 1);
-        SetVisibleBtnBack(VisibilityBtnBackHistory[^1]);
+        SetVisibleBtnBack(GetLastVisibleBtnBackHistory());
+        SetVisibleBtnLogout(GetLastVisibleBtnLogoutHistory());
     }
-    
-    private void AdditionForBtnBackViewHistory(bool visibleBtnBack)
+
+    private void AdditionForHistory(bool visibleBtnBack, bool visibleBtnLogout = false)
     {
         VisibilityBtnBackHistory.Add(visibleBtnBack);
         SetVisibleBtnBack(visibleBtnBack);
+        VisibilityBtnLogoutHistory.Add(visibleBtnLogout);
+        SetVisibleBtnLogout(visibleBtnLogout);
     }
-    
-    private void SetVisibleBtnBack(bool visible) => VisibleBtnBack = visible;
+    private bool GetLastVisibleBtnBackHistory()
+    {
+        VisibilityBtnBackHistory.RemoveAt(VisibilityBtnBackHistory.Count - 1);
+        return VisibilityBtnBackHistory[^1];
+    }
+    private bool GetLastVisibleBtnLogoutHistory()
+    {
+        VisibilityBtnLogoutHistory.RemoveAt(VisibilityBtnLogoutHistory.Count - 1);
+        return VisibilityBtnLogoutHistory[^1];
+    }
+    private void SetVisibleBtnBack(bool visible)
+    {
+        VisibleBtnBack = visible; 
+    }
+    private void SetVisibleBtnLogout(bool visible)
+    {
+        VisibleBtnLogout = visible; 
+    }
 }

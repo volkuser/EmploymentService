@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Input;
 
 namespace Entities.Models;
 
@@ -22,4 +23,7 @@ public class Employed
     public char SexId { get; set; }
     [ForeignKey("SexId")]
     public Sex? Sex { get; set; }
+    
+    [NotMapped]
+    public ICommand? CmdEducations { get; set; }
 }

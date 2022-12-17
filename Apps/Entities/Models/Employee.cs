@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Input;
 
 namespace Entities.Models;
 
@@ -16,4 +17,7 @@ public class Employee
     public string? Login { get; set; }
     [Column("Password")]
     public string? Password { get; set; }
+    
+    [NotMapped]
+    public ICommand? CmdPositions { get; set; }
 }

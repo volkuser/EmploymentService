@@ -2,7 +2,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EmployeeApp.Views.HR.EmployeeControlPage">
-    Welcome to Avalonia!
+             mc:Ignorable="d" x:Class="EmployeeApp.Views.HR.EmployeeControlPage">
+    <Grid RowDefinitions="*, 5*,0.2*" ColumnDefinitions="0.2*,2*,0.1*,*,0.2*">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <TextBox Text="{Binding SearchQuery}" MinWidth="400" MaxWidth="400"/>
+            <Button Content="Искать" Command="{Binding OnClickBtnSearch}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Добавить" Command="{Binding OnClickBtnInsert}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Обновить" Command="{Binding OnClickBtnUpdate}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Удалить" Command="{Binding OnClickBtnDelete}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.Column="1" Items="{Binding Employees}"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserSortColumns="True"
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedValue}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"/>
+                <DataGridTemplateColumn Header="Должности">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Изменить" Command="{Binding CmdEmployees}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.Column="3">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+                <TextBlock Text="Фамилия"/>
+                <TextBox Text="{Binding LastName}"/>
+                <TextBlock Text="Имя"/>
+                <TextBox Text="{Binding FirstName}"/>
+                <TextBlock Text="Логин"/>
+                <TextBox Text="{Binding Login}"/>
+                <TextBlock Text="Пароль"/>
+                <TextBox Text="{Binding Password}" PasswordChar="*"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

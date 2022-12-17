@@ -46,7 +46,7 @@
                 <TextBox Text="{Binding FirstName}"/>
                 <TextBlock Text="Отчество"/>
                 <TextBox Text="{Binding Patronymic}"/>
-                <TextBlock Text="Почтоый ящик"/>
+                <TextBlock Text="Почтовый ящик"/>
                 <TextBox Text="{Binding Email}"/>
                 <TextBlock Text="Телефон"/>
                 <TextBox Text="{Binding Phone}"/>

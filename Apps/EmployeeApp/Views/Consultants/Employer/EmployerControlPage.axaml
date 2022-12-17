@@ -2,7 +2,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EmployeeApp.Views.Consultants.Employer.EmployerControlPage">
-    Welcome to Avalonia!
+             mc:Ignorable="d" x:Class="EmployeeApp.Views.Consultants.Employer.EmployerControlPage">
+    <Grid RowDefinitions="*, 5*,0.2*" ColumnDefinitions="0.2*,2*,0.1*,*,0.2*">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <TextBox Text="{Binding SearchQuery}" MinWidth="400" MaxWidth="400"/>
+            <Button Content="Искать" Command="{Binding OnClickBtnSearch}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Добавить" Command="{Binding OnClickBtnInsert}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Обновить" Command="{Binding OnClickBtnUpdate}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Удалить" Command="{Binding OnClickBtnDelete}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.Column="1" Items="{Binding Employers}"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserSortColumns="True"
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedValue}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Организация" Binding="{Binding OrganizationName}"/>
+                <DataGridTextColumn Header="Телефон поддержки" Binding="{Binding SupportNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.Column="3">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+                <TextBlock Text="Фамилия"/>
+                <TextBox Text="{Binding LastName}"/>
+                <TextBlock Text="Имя"/>
+                <TextBox Text="{Binding FirstName}"/>
+                <TextBlock Text="Должность"/>
+                <TextBox Text="{Binding Position}"/>
+                <TextBlock Text="Организация"/>
+                <TextBox Text="{Binding OrganizationName}"/>
+                <TextBlock Text="Личный телефон"/>
+                <TextBox Text="{Binding PersonalPhone}"/>
+                <TextBlock Text="Личный почтовый ящик"/>
+                <TextBox Text="{Binding PersonalEmail}"/>
+                <TextBlock Text="Телефон поддержки"/>
+                <TextBox Text="{Binding SupportNumber}"/>
+                <TextBlock Text="Почтовый ящик поддержки"/>
+                <TextBox Text="{Binding SupportEmail}"/>
+                <TextBlock Text="Адрес регистрации поддержки"/>
+                <TextBox Text="{Binding RegistrationAddressOfOrganization}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

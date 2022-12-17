@@ -47,6 +47,7 @@ public class EmployedControlViewModel : ViewModelBase, IRoutableViewModel
             if (_selectedValue == value) return;
             _selectedValue = value;
 
+            if (value == null) return;
             FirstName = value.FirstName!;
             LastName = value.LastName!;
             Patronymic = value.Patronymic!;
@@ -115,9 +116,12 @@ public class EmployedControlViewModel : ViewModelBase, IRoutableViewModel
 
     private void Delete()
     {
-        Employeds.Remove(SelectedValue);
         Db.Employeds!.Remove(SelectedValue);
-        try { Db.SaveChanges(); } catch (Exception ex) {
+        try
+        {
+            Db.SaveChanges(); 
+            Employeds.Remove(SelectedValue);
+        } catch (Exception ex) {
             var messageBox = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxStandardWindow("Exception", ex.Message);
             messageBox.Show();

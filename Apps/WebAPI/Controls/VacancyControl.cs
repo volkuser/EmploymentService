@@ -36,7 +36,7 @@ public class VacancyControl : IVacancyControl
     {
         if (entity == null) return;
         var updatingEntity = await _context.Vacancies!.FindAsync(new object[] {entity.Id});
-        updatingEntity!.Salary = entity.Salary;
+        updatingEntity!.Seniority = entity.Seniority;
         updatingEntity.EmployerId = entity.EmployerId;
         updatingEntity.ProfessionId = entity.ProfessionId;
         _context.Vacancies.Update(updatingEntity);

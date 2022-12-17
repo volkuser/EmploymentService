@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Input;
 
 namespace Entities.Models;
 
@@ -10,4 +11,7 @@ public class Profession
     public Guid Id { get; set; }
     [Column("Name")]
     public string? Name { get; set; }
+    
+    [NotMapped]
+    public ICommand? CmdEducations { get; set; }
 }

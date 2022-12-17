@@ -29,10 +29,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Edit">
+                <DataGridTemplateColumn Header="Образование">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Edit" Command="{Binding CmdEducations}"/>
+                            <Button Content="Изменить" Command="{Binding CmdEducations}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -38,6 +38,7 @@ public class EmployedEducationControlViewModel : ViewModelBase, IRoutableViewMod
             if (_selectedValue == value) return;
             _selectedValue = value;
 
+            if (value == null) return;
             Education = value.Education!;
         }
     }
@@ -73,9 +74,12 @@ public class EmployedEducationControlViewModel : ViewModelBase, IRoutableViewMod
 
     private void Delete()
     {
-        EmployedEducations.Remove(SelectedValue);
         Db.EmployedEducations!.Remove(SelectedValue);
-        try { Db.SaveChanges(); } catch (Exception ex) {
+        try
+        {
+            Db.SaveChanges(); 
+            EmployedEducations.Remove(SelectedValue);
+        } catch (Exception ex) {
             var messageBox = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxStandardWindow("Exception", ex.Message);
             messageBox.Show();

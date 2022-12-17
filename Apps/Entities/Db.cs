@@ -7,7 +7,7 @@ namespace Entities;
 public class Db : DbContext
 {
     private const string ConnectionString = "Host=localhost;Port=5432;" +
-                                            "Database=EmploymentService;Username=postgres;Password=iuh";
+                                            "Database=EmploymentService;Username=postgres;Password=123";
     
     public DbSet<Education>? Educations { get; set; }
     public DbSet<Employed>? Employeds { get; set; }

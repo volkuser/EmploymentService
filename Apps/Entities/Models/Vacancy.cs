@@ -8,8 +8,8 @@ public class Vacancy
 {
     [Key] [Column("Id")]
     public Guid Id { get; set; }
-    [Column("Salary")]
-    public float Salary { get; set; }
+    [Column("Seniority")]
+    public int Seniority { get; set; }
     [Column("EmployerId")]
     public Guid EmployerId { get; set; }
     [ForeignKey("EmployerId")]

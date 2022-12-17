@@ -41,7 +41,7 @@ CREATE TABLE "Profession"(
 CREATE TABLE "Vacancy"(
     "Id" UUID NOT NULL PRIMARY KEY,
     "Seniority" INT NOT NULL,
-    "Salary" DECIMAL(38,2) NULL CHECK ("Salary" >= 0.0) DEFAULT (0.0),
+    -- "Salary" DECIMAL(38,2) NULL CHECK ("Salary" >= 0.0) DEFAULT (0.0),
     "EmployerId" UUID NOT NULL REFERENCES "Employer" ("Id"),
     "ProfessionId" UUID NOT NULL REFERENCES "Profession" ("Id")
 );

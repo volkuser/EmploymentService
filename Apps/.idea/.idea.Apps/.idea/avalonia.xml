@@ -11,6 +11,7 @@
         <entry key="EmployeeApp/Views/Consultants/Employer/EmployerControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="EmployeeApp/Views/Consultants/Employer/ProfessionControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="EmployeeApp/Views/Consultants/Employer/VacancyControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
+        <entry key="EmployeeApp/Views/Coordinator/JobApplicationControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="EmployeeApp/Views/Coorinator/JobApplicationControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="EmployeeApp/Views/HR/EmployeeControlPage.axaml" value="EmployeeApp/EmployeeApp.csproj" />
         <entry key="EmployeeApp/Views/HR/EmployeePositionControl.axaml" value="EmployeeApp/EmployeeApp.csproj" />

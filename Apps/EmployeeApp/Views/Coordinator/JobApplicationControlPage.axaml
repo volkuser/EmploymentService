@@ -2,7 +2,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EmployeeApp.Views.Coordinator.JobApplicationControlPage">
-    Welcome to Avalonia!
+             mc:Ignorable="d" x:Class="EmployeeApp.Views.Coordinator.JobApplicationControlPage">
+    <Grid RowDefinitions="*, 5*,0.2*" ColumnDefinitions="0.2*,2*,0.1*,*,0.2*">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Button Content="Добавить" Command="{Binding OnClickBtnInsert}"/>
+            <TextBlock Text=" "/>
+            <Button Content="Удалить" Command="{Binding OnClickBtnDelete}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.Column="1" Items="{Binding JobApplications}"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CanUserSortColumns="True"
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedValue}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Вакансия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" DataContext="{Binding Vacancy}">
+                                <TextBlock Text="{Binding OrganizationName}" DataContext="{Binding Employer}"/>
+                                <TextBlock Text="/"/>
+                                <TextBlock Text="{Binding Name}" DataContext="{Binding Profession}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Трудоустраиваемый">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock DataContext="{Binding Employed}" Text="{Binding LastName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Сотрудник">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock DataContext="{Binding Employee}" Text="{Binding LastName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.Column="3">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+                <TextBlock Text="Трудоустраиваемый"/>
+                <ComboBox SelectedItem="{Binding Employed}" Items="{Binding Employeds}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Вакансия"/>
+                <ComboBox SelectedItem="{Binding Vacancy}" Items="{Binding Vacancies}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding OrganizationName}" DataContext="{Binding Employer}"/>
+                                <TextBlock Text="/"/>
+                                <TextBlock Text="{Binding Name}" DataContext="{Binding Profession}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Сотрудник"/>
+                <ComboBox SelectedItem="{Binding Employee}" Items="{Binding Employees}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>
